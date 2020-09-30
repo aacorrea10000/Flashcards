@@ -1,0 +1,123 @@
+<html>
+
+<head>
+	<!-- NEW -->
+	<meta charset="utf-8">
+	<!-- NEW -->
+	<!-- CSS Stylesheets NEW-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+
+	<!-- Font Awesome to add icons -->
+  <script src="https://kit.fontawesome.com/a4a243871e.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+	<title>Division Flashcards</title>
+	<script>
+		var number1 = Math.floor((Math.random() * 10) + 1);
+		var number2 = Math.floor((Math.random() * 10) + 1);
+		var correctAnswer = number1 / number2;
+		var output;
+	</script>
+</head>
+
+<body>
+	<section class="colored-section" id="title">
+
+		<!-- Nav Bar NEW-->
+		<div class="container-fluid">
+
+
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<a class="nav-link" href="addition.html">Addition</a>
+				<a class="nav-link" href="subtraction.html">Subtraction</a>
+				<a class="nav-link" href="multiplication.html">Multiplication</a>
+				<a class="nav-link" href="division.html">Division</a>
+
+			</nav>
+		</div>
+
+		<div class="row">
+
+		        <div class="col-lg-6">
+		          <h1 class="big-heading">Need to practice maths? Here is a chance.</h1>
+
+		        </div>
+
+		        <div class="col-lg-6">
+		          <img src="images/calculator.jfif" alt="calculator-mockup" class="rotate25">
+		        </div>
+		      </div>
+		    </div>
+	</section>
+
+	  <section class="white-section" id="features">
+
+	<h1 class="Division">Division Flashcards</h1>
+	<h1 id="numbers">
+		<script>
+			document.write(number1 + " / " + number2);
+		</script>
+	</h1>
+
+	<input id="answer">
+	<button type="button" onclick="useAnswer();">Submit Answer</button>
+	<button type="button" onclick="nextCard();">Next Card</button>
+	<p id="output"></p>
+
+
+	<!-- Function that recorgnise not number below isNaN and add message. We also need a logical statement-->
+	<script>
+		function useAnswer() {
+			var useAnswer = document.getElementById("answer").value;
+
+			if (isNaN(useAnswer)) {
+				output = "Hey! That's not a number, try again!";
+			} else {
+				if (useAnswer == correctAnswer) {
+					output = "Correct! You are a smart!!" + " " + number1 + " / " + number2 + " = " + correctAnswer;
+				} else {
+					output = "Wrong, try again - I know you can do it!" + " " + number1 + " / " + number2 + " = " + " " + correctAnswer;
+				}
+
+			}
+
+			document.getElementById('output').innerHTML = output;
+		}
+
+		// Function for the Next Card Button
+		function nextCard() {
+			document.getElementById('output').innerHTML = "";
+			document.getElementById('answer').value = "";
+
+			number1 = Math.floor((Math.random() * 10) + 1);
+			number2 = Math.floor((Math.random() * 10) + 1);
+			correctAnswer = number1 / number2;
+			document.getElementById("numbers").innerHTML = (number1 + " / " + number2);
+		}
+	</script>
+	</section>
+	<!-- Footer -->
+
+	<footer class="colored-section" id="footer">
+		<div class="container-fluid">
+			<i class="social-icon fab fa-facebook-f"></i>
+			<i class="social-icon fab fa-twitter"></i>
+			<i class="social-icon fab fa-instagram-square"></i>
+			<i class="social-icon fas fa-envelope"></i>
+			<p>@ 2020 Adriana Correa</p>
+
+		</div>
+	</footer>
+
+
+</body>
+
+
+</html>
